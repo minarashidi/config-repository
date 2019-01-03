@@ -1,9 +1,21 @@
 spring:
-  h2:
-    console:
+  cloud:
+    bus:
       enabled: true
+    stream:
+      kafka:
+        binder:
+          zkNodes: 'localhost:2181'
+          brokers: 'localhost:9092'
 
 server:
   port: 8085
 
 default-country: Germany
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["health", "info", "refresh"]
+
